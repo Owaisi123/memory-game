@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  
+  .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .reset-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .reset-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #aaa; /* Default border color */
+  }
+  
+  /* Change border color when the box is flipped */
+  .box.flipped {
+    background-color: #ffeb3b;
+    color: #333;
+    border: 2px solid #ffeb3b; /* Yellow border when flipped */
+  }
+  
+  /* Matched boxes with green border */
+  .box.matched {
+    background-color: #4caf50;
+    color: white;
+    pointer-events: none;
+    border: 2px solid #4caf50; /* Green border for matched boxes */
+  }
+  
+  @keyframes flipIn {
+    0% {
+      transform: rotateY(90deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+  
+  .flipped {
+    animation: flipIn 0.6s forwards;
+  }
+  
+  .win-message {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .play-again-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .play-again-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .game-board {
+      grid-template-columns: repeat(4, 80px);
+      grid-template-rows: repeat(4, 80px);
+      gap: 8px;
+    }
+  
+    .box {
+      width: 80px;
+      height: 80px;
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .game-board {
+      grid-template-columns: repeat(4, 60px);
+      grid-template-rows: repeat(4, 60px);
+      gap: 6px;
+    }
+  
+    .box {
+      width: 60px;
+      height: 60px;
+      font-size: 16px;
+    }
+  
+    .reset-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  
+    .play-again-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+  
